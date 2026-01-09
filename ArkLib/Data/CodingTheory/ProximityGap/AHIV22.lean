@@ -83,6 +83,8 @@ lemma probOfBadPts {deg : ℕ} {α : ι ↪ F} {e : ℕ} {U_star : WordStack (A 
   (hU : e < Δ₀(⋈|U_star, (ReedSolomon.code α deg)^⋈κ)) :
   (PMF.uniformOfFintype (Matrix.rowSpan U_star)).toOuterMeasure
     {w_star | Δ₀(w_star, RScodeSet α deg) ≤ e} ≤ ‖(RScodeSet α deg)‖₀ /(Fintype.card F) := by
+  by_contra h_neg
+  push_neg at h_neg
   sorry
 
 end ProximityToRS
