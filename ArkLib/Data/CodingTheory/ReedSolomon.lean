@@ -55,8 +55,8 @@ def genMatrix (deg : ℕ) [Semiring F] : Matrix (Fin deg) ι F :=
 /-- The (parity)-check matrix of the Reed-Solomon code, assuming `ι` is finite. -/
 noncomputable def checkMatrix (deg : ℕ) [Fintype ι] [Field F] :
   Matrix (Fin (Fintype.card ι - deg)) ι F :=
-  let P := Finset.univ.prod fun j => (Polynomial.X - Polynomial.C (domain j))
-  Matrix.of fun i j => domain j ^ (i : ℕ) * ((Polynomial.derivative P).eval (domain j))⁻¹
+  let P := Finset.univ.prod fun j => (X - C (domain j))
+  .of fun i j => domain j ^ (i : ℕ) * (P.derivative.eval (domain j))⁻¹
 
 -- theorem code_by_genMatrix (deg : ℕ) :
 --     code deg = codeByGenMatrix (genMatrix deg) := by
